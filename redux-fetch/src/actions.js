@@ -1,5 +1,3 @@
-"use strict";
-
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const SELECT_SUBREDIT = 'SELECT_SUBREDIT';
@@ -40,7 +38,7 @@ function fetchPosts (subreddit) {
 		dispatch(requestPosts(subreddit));
 		return fetch(`https://www.reddit.com/r/${subreddit}.json`)
 			.then(response => response.json())
-			.then(json => dispatch(requestPosts(subreddit, json)))
+			.then(json => dispatch(receivePosts(subreddit, json)))
 	}
 }
 
